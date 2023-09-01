@@ -13,13 +13,17 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://kit.fontawesome.com/1bf067c1d8.js" crossorigin="anonymous"></script>
+
+    @livewireStyles
 </head>
 <body>
-<div style="font-family: Aldrich">
-    {{ $slot }}
-</div>
+    <div style="font-family: Aldrich">
+        {{ $slot }}
+    </div>
 
-<!-- Sweetalert 2 -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Sweetalert 2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @livewireScripts
 </body>
 </html>
