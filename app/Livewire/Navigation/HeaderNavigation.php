@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Navigation;
 
+use App\Models\NavigationItem;
 use Livewire\Component;
 
 class HeaderNavigation extends Component
@@ -10,7 +11,7 @@ class HeaderNavigation extends Component
 
     public function mount()
     {
-        //$this->items = Item::get
+        $this->items = NavigationItem::all();
     }
 
     public function render()
