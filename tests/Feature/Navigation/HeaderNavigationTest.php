@@ -33,7 +33,7 @@ class HeaderNavigationTest extends TestCase
     }
 
     /** @test */
-    public function only_admin_see_navigation_actions()
+    public function only_admin_can_see_navigation_actions()
     {
         $user = User::factory()->create();
 
@@ -43,4 +43,16 @@ class HeaderNavigationTest extends TestCase
             ->assertSee(__('Add'));
         
     }
+
+    //  /** @test */
+    // public function guest_cannot_see_navigation_actions()
+    // {
+
+    //     Livewire::test(HeaderNavigation::class)
+    //         ->assertStatus(200)
+    //         ->assertDontSee(__('Edit'))
+    //         ->assertDontSee(__('Add'));
+        
+    //         $this->assertGuest();
+    // }
 }
