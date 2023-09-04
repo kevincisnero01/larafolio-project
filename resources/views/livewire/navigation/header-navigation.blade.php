@@ -1,10 +1,6 @@
 <div>
     <section id="hola">
-        <div x-data="{ open: false }"
-         {{-- 
-         x-data="{ open: false, focus: true }"
-         @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup" --}}
-         >
+        <div x-data="{ open: false }">
             <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
                 <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
                     <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -24,15 +20,23 @@
                             </div>
                         </div>
                     </div>
+                    <!--Navigation Items for Desktop-->
                     <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8 text-lg">
                         <x-navigation.links class="text-gray-200 hover:text-red-300" :items="$items"/>
                     </div>
+                    <!--Navigation Actions for Desktop-->
                     {{-- @auth --}}
                     <div class="hidden md:flex items-center justify-between space-x-2 ml-4 pb-1">
-                        <x-action class="text-yellow-300 hover:text-blue-300" title="{{ __('Edit') }}">
+                        <x-action 
+                            class="text-yellow-300 hover:text-blue-300" title="{{ __('Edit') }}"
+                            wire:click.prevent="openSlide" 
+                        >
                             <x-icons.edit/>
                         </x-action>
-                        <x-action class="text-yellow-300 hover:text-blue-300" title="{{ __('Add') }}">
+                        <x-action 
+                            class="text-yellow-300 hover:text-blue-300" title="{{ __('Add') }}"
+                            wire:click.prevent="openSlide(true)" 
+                        >
                             <x-icons.add/>
                         </x-action>
                     </div>
@@ -41,8 +45,8 @@
             </div>
 
             <div x-show="open" 
-            class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden" 
-            @click.away="open = false" style="display: none;">
+                class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden" 
+                @click.away="open = false" style="display: none;">
                 <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="px-5 pt-4 flex items-center justify-between">
                         <div>
@@ -58,13 +62,21 @@
                         </div>
                     </div>
                     <div class="px-2 pt-2 pb-3 space-y-1">
+                        <!--Navigation Items for Mobile-->
                         <x-navigation.links class="block px-3 py-2 rounded-md text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50" :items="$items"/>
+                        <!--Navigation Actions for Mobile-->
                         {{-- @auth --}}
-                        <x-action class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Edit') }}">
+                        <x-action 
+                            class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Edit') }}"
+                            wire:click.prevent="openSlide" 
+                        >
                             <x-icons.edit/>
                         </x-action>
 
-                        <x-action class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Add') }}">
+                        <x-action 
+                            class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Add') }}"
+                            wire:click.prevent="openSlide(true)"
+                        >
                             <x-icons.add/>
                         </x-action>
                         {{-- @endauth --}}
@@ -74,5 +86,12 @@
         </div>
 
         <!-- slideover add/edit -->
+            <x-modals.slideover>
+                @if($addNewItem)
+                    Crear Item
+                @else
+                    Editar Item
+                @endif
+            </x-modals.slideover>
     </section>
 </div>
