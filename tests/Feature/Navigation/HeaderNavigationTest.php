@@ -2,12 +2,13 @@
 
 namespace Tests\Feature\Navigation;
 
-use App\Livewire\Navigation\HeaderNavigation;
 use Tests\TestCase;
+use App\Models\User;
+use Livewire\Livewire;
 use App\Models\NavigationItem;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\Livewire\Navigation\HeaderNavigation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Livewire;
 
 class HeaderNavigationTest extends TestCase
 {
@@ -29,5 +30,17 @@ class HeaderNavigationTest extends TestCase
         Livewire::test(HeaderNavigation::class)
             ->assertSee($items->first()->label)
             ->assertSee($items->first()->link);
+    }
+
+    /** @test */
+    public function only_admin_see_navigation_actions()
+    {
+        $user = User::factory()->create();
+
+        Livewire::actingAs($user)->test(HeaderNavigation::class)
+            ->assertStatus(200)
+            ->assertSee(__('Edit'))
+            ->assertSee(__('Add'));
+        
     }
 }
