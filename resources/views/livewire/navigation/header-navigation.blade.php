@@ -27,18 +27,18 @@
                     <!--Navigation Actions for Desktop-->
                     {{-- @auth --}}{{-- @endauth --}}
                     <div class="hidden md:flex items-center justify-between space-x-2 ml-4 pb-1">
-                        <x-action 
+                        <x-actions.action_link 
                             class="text-yellow-300 hover:text-blue-300" title="{{ __('Edit') }}"
                             wire:click.prevent="openSlide" 
                         >
                             <x-icons.edit/>
-                        </x-action>
-                        <x-action 
+                        </x-actions.action_link>
+                        <x-actions.action_link 
                             class="text-yellow-300 hover:text-blue-300" title="{{ __('Add') }}"
                             wire:click.prevent="openSlide(true)" 
                         >
                             <x-icons.add/>
-                        </x-action>
+                        </x-actions.action_link>
                     </div>
                     
                 </nav>
@@ -66,19 +66,19 @@
                         <x-navigation.links class="block px-3 py-2 rounded-md text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50" :items="$items"/>
                         <!--Navigation Actions for Mobile-->
                         {{-- @auth --}}{{-- @endauth --}}
-                        <x-action 
+                        <x-actions.action_link
                             class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Edit') }}"
                             wire:click.prevent="openSlide" 
                         >
                             <x-icons.edit/>
-                        </x-action>
+                        </x-actions.action_link>
 
-                        <x-action 
+                        <x-actions.action_link
                             class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Add') }}"
                             wire:click.prevent="openSlide(true)"
                         >
                             <x-icons.add/>
-                        </x-action>
+                        </x-actions.action_link>
                         
                     </div>
                 </div>

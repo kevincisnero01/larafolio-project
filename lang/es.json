@@ -79,5 +79,11 @@
     "There are no items to show!" : "¡No hay elementos para mostrar!",
     "Label" : "Etiqueta",
     "Link" : "Enlace",
-    "Item" : "Elemento"
+    "Item" : "Elemento",
+    "Are you sure?": "¿Estas seguro?",
+    "You will not be able to revert this!": "Tu no puedes revertir esta acción",
+    "Remember that this action is irreversible." : "Recuerda que esta acción es irreversible.",
+    "Yes, delete it!": "Sí, eliminalo",
+    "Delete": "Eliminar",
+    "Menu item has been deleted.": "El elemento del menú ha sido eliminado"
 }
