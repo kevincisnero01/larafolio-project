@@ -73,5 +73,11 @@
     "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
     "Edit" : "Editar",
     "Add" : "Agregar",
-    "New" : "Nuevo"
+    "New" : "Nuevo",
+    "Menu items updated successfully!" : "¡Menu actualizado satisfactoriamente!",
+    "Update" : "Actualizar",
+    "There are no items to show!" : "¡No hay elementos para mostrar!",
+    "Label" : "Etiqueta",
+    "Link" : "Enlace",
+    "Item" : "Elemento"
 }

@@ -37,7 +37,9 @@ class HeaderNavigation extends Component
         }
 
         $this->reset('openSlideover');
+
         // notify
+        $this->dispatch('notify', message: __('Menu items updated successfully!')); 
     }
 
     public function render()
