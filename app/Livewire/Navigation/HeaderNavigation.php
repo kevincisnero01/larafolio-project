@@ -11,6 +11,8 @@ class HeaderNavigation extends Component
     public $openSlideover = false;
     public $addNewItem = false;
 
+    protected $listeners = ['deleteItem'];
+
     public function mount()
     {
         $this->items = NavigationItem::all();
@@ -38,8 +40,16 @@ class HeaderNavigation extends Component
 
         $this->reset('openSlideover');
 
-        // notify
         $this->dispatch('notify', message: __('Menu items updated successfully!')); 
+    }
+
+    public function deleteItem(NavigationItem $item)
+    {
+        $item->delete();
+
+        $this->mount();
+
+        $this->dispatch('deleteMessage', message: __('Menu item has been deleted.'));
     }
 
     public function render()

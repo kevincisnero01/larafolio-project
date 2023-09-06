@@ -17,6 +17,7 @@
             </div> 
             <div class="mt-3 w-0">
                 <!--delete action-->
+                <x-actions.delete eventName="deleteItem" :object="$item"/>
             </div>
         </section>
     @empty

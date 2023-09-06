@@ -81,6 +81,20 @@ class HeaderNavigationTest extends TestCase
             'label' => 'Contacto',
             'link' =>'#contact'
         ]);
-    
     }
+
+        /** @test */
+        public function admin_can_delete_items()
+        {
+            $user = User::factory()->create();
+
+            $item =  NavigationItem::factory()->create();
+        
+            Livewire::actingAs($user)->test(HeaderNavigation::class)->call('deleteItem',$item);
+    
+            $this->assertDatabaseMissing('navigation_items',[
+                'id' => $item->id
+            ]);
+    
+        }
 }
