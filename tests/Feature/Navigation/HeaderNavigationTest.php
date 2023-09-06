@@ -55,4 +55,32 @@ class HeaderNavigationTest extends TestCase
         
     //         $this->assertGuest();
     // }
+
+    /** @test */
+    public function admin_can_edit_items()
+    {
+        $user = User::factory()->create();
+
+        $items = NavigationItem::factory(2)->create();
+
+        Livewire::actingAs($user)->test(HeaderNavigation::class, ['items' => $items])
+            ->set('items.0.label', 'Proyectos')
+            ->set('items.0.link', '#proyectos')
+            ->set('items.1.label', 'Contacto')
+            ->set('items.1.link', '#contact')
+            ->call('edit');
+
+        $this->assertDatabaseHas('navigation_items',[
+            'id' => $items->first()->id,
+            'label' => 'Proyectos',
+            'link' =>'#proyectos'
+        ]);
+
+        $this->assertDatabaseHas('navigation_items',[
+            'id' => $items->last()->id,
+            'label' => 'Contacto',
+            'link' =>'#contact'
+        ]);
+    
+    }
 }

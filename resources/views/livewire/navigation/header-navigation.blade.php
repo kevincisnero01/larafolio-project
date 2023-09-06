@@ -25,7 +25,7 @@
                         <x-navigation.links class="text-gray-200 hover:text-red-300" :items="$items"/>
                     </div>
                     <!--Navigation Actions for Desktop-->
-                    {{-- @auth --}}
+                    {{-- @auth --}}{{-- @endauth --}}
                     <div class="hidden md:flex items-center justify-between space-x-2 ml-4 pb-1">
                         <x-action 
                             class="text-yellow-300 hover:text-blue-300" title="{{ __('Edit') }}"
@@ -40,7 +40,7 @@
                             <x-icons.add/>
                         </x-action>
                     </div>
-                    {{-- @endauth --}}
+                    
                 </nav>
             </div>
 
@@ -65,7 +65,7 @@
                         <!--Navigation Items for Mobile-->
                         <x-navigation.links class="block px-3 py-2 rounded-md text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50" :items="$items"/>
                         <!--Navigation Actions for Mobile-->
-                        {{-- @auth --}}
+                        {{-- @auth --}}{{-- @endauth --}}
                         <x-action 
                             class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Edit') }}"
                             wire:click.prevent="openSlide" 
@@ -79,7 +79,7 @@
                         >
                             <x-icons.add/>
                         </x-action>
-                        {{-- @endauth --}}
+                        
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                 @if($addNewItem)
                     Crear Item
                 @else
-                    Editar Item
+                    <x-forms.edit-items :items="$items"/>
                 @endif
             </x-modals.slideover>
     </section>
