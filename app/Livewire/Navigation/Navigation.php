@@ -5,7 +5,8 @@ namespace App\Livewire\Navigation;
 use App\Models\NavigationItem;
 use Livewire\Component;
 use App\Livewire\Traits\Notification;
-class HeaderNavigation extends Component
+
+class Navigation extends Component
 {
     use Notification;
 
@@ -23,7 +24,7 @@ class HeaderNavigation extends Component
     //reglas de validacion
     protected $rules = [
         'items.*.label' => 'required|max:20',
-        'items.*.link' => 'required|max:50',
+        'items.*.link' => 'required|max:40',
 
     ];
 
@@ -68,6 +69,6 @@ class HeaderNavigation extends Component
 
     public function render()
     {
-        return view('livewire.navigation.header-navigation');
+        return view('livewire.navigation.navigation');
     }
 }
