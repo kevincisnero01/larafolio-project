@@ -4,9 +4,11 @@ namespace App\Livewire\Navigation;
 
 use App\Models\NavigationItem;
 use Livewire\Component;
-
+use App\Livewire\Traits\Notification;
 class HeaderNavigation extends Component
 {
+    use Notification;
+
     public $items;
     public $openSlideover = false;
     public $addNewItem = false;
@@ -48,7 +50,7 @@ class HeaderNavigation extends Component
         $this->reset('openSlideover');
 
         //4-disparar el evento de la notificacion
-        $this->dispatch('notify', message: __('Menu items updated successfully!')); 
+        $this->notify('Menu items updated successfully!');
     }
 
     public function deleteItem(NavigationItem $item)
@@ -56,11 +58,12 @@ class HeaderNavigation extends Component
         //1-eliminar elemento de la navegacion 
         $item->delete();
         
-        //2-refrescar componente de navegacion
+        //2-refrescar componente de <navegacion></navegacion>
         $this->mount();
 
         //3-disparar el evento de la notificacion
-        $this->dispatch('deleteMessage', message: __('Menu item has been deleted.'));
+        $this->notify('Menu item has been deleted.', 'deleteMessage');
+
     }
 
     public function render()
