@@ -85,5 +85,10 @@
     "Remember that this action is irreversible." : "Recuerda que esta acción es irreversible.",
     "Yes, delete it!": "Sí, eliminalo",
     "Delete": "Eliminar",
-    "Menu item has been deleted.": "El elemento del menú ha sido eliminado"
+    "Menu item has been deleted.": "El elemento del menú ha sido eliminado",
+    "Item created successfully!": "Elemento creado satisfactoriamente!",
+    "These are the static links for the 3 sections of portfolio (Home, Projects and Contact):": "Estos son los enlaces estáticos para las 3 secciones del portafolio (Inicio, Proyectos y Contacto):",
+    "hello": "hola",
+    "projects": "proyectos",
+    "contact": "contacto"
 }

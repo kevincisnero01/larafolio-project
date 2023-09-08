@@ -14,7 +14,7 @@ class Navigation extends Component
     public $openSlideover = false;
     public $addNewItem = false;
 
-    protected $listeners = ['deleteItem'];
+    protected $listeners = ['deleteItem','itemAdded' => 'updateDataAfterAddItem'];
 
     public function mount()
     {
@@ -35,6 +35,13 @@ class Navigation extends Component
 
         //abrir menu lateral
         $this->openSlideover = true;
+    }
+
+    public function updateDataAfterAddItem()
+    {
+        $this->mount();
+        
+        $this->openSlideover = false;
     }
 
     public function edit()
