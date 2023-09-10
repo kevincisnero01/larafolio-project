@@ -4,7 +4,7 @@
         <div>
             <x-inputs.label for="title" value="{{__('Title')}}" />
 
-            <x-inputs.text wire:model="info.title" id="title" type="text" required />
+            <x-inputs.text wire:model="info.title" id="title" type="text"  />
 
             @error("info.title")<div class="mt-1 text-red-600 text-sm">{{ $message }}</div>@enderror
         </div>
@@ -13,7 +13,7 @@
         <div class="mt-3">
             <x-inputs.label for="description" value="{{__('Description')}}" />
 
-            <x-inputs.textarea wire:model="info.description" id="description" required />
+            <x-inputs.textarea wire:model="info.description" id="description"  />
 
             @error("info.description")<div class="mt-1 text-red-600 text-sm">{{ $message }}</div>@enderror
         </div>
