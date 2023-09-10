@@ -9,6 +9,8 @@ use App\Models\PersonalInformation;
 use App\Models\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class InfoTest extends TestCase
 {
@@ -58,5 +60,37 @@ class InfoTest extends TestCase
         //     ->assertDontSee(__('Edit'));
         
         // $this->assertGuest();
+    }
+
+    /** @test */
+    public function admin_can_edit_hero_info()
+    {
+        $user = User::factory()->create();
+        $info = PersonalInformation::factory()->create();
+        $image = UploadedFile::fake()->image('heroimage.png');
+        $cv = UploadedFile::fake()->create('curriculum.pdf');
+
+        Storage::fake('hero');
+        Storage::fake('cv');
+
+        Livewire::actingAs($user)->test(Info::class)
+            ->set('info.title', 'Kevin Cisnero')
+            ->set('info.description', 'Developer Backend PHP with Laravel')
+            ->set('info.cv', $cv)
+            ->set('info.image', $image)
+            ->call('edit');
+
+        $info->refresh();
+
+        $this->assertDatabaseHas('personal_information',[
+            'id' => $info->id,
+            'title' => 'Kevin Cisnero',
+            'description' => 'Developer Backend PHP with Laravel',
+            'cv' => $cv,
+            'image' => $image
+        ]);
+
+        Storage::disk('hero')->assertExists($info->image);
+        Storage::disk('cv')->assertExists($info->cv);
     }
 }
