@@ -1,5 +1,6 @@
 <div class="w-full sm:max-w-md px-6 py-4">
     <form wire:submit.prevent="edit">
+        <!--title-->
         <div>
             <x-inputs.label for="title" value="{{__('Title')}}" />
 
@@ -7,6 +8,8 @@
 
             @error("info.title")<div class="mt-1 text-red-600 text-sm">{{ $message }}</div>@enderror
         </div>
+
+        <!--description-->
         <div class="mt-3">
             <x-inputs.label for="description" value="{{__('Description')}}" />
 
@@ -14,10 +17,12 @@
 
             @error("info.description")<div class="mt-1 text-red-600 text-sm">{{ $message }}</div>@enderror
         </div>
+
+        <!--curriculum-->
         <div class="mt-4">
             <x-inputs.label for="cv" value="{{__('CV')}}"/>
 
-            <x-inputs.file wire:model="cvFile" id="cv" class="block mt-1 w-full"/>
+            <x-inputs.file wire:model="cvFile" id="cv" class="block mt-1 w-full text-gray-700"/>
             <a href="{{ $info->cvUrl }}" class="text-gray-400 text-sm hover:text-gray-700" target="_blank">{{__('Open Current File')}}</a>
 
             <div wire:loading wire:target="cvFile" class="mt-1 w-full text-indigo-700">
@@ -26,6 +31,8 @@
 
             @error("cvFile")<div class="mt-1 text-red-600 text-sm">{{ $message }}</div>@enderror
         </div>
+
+        <!--imagen de hero-->
         <div class="mt-4">
             <x-inputs.label for="image" value="{{__('Image')}}" />
 
@@ -41,6 +48,8 @@
 
             @error("imageFile")<div class="mt-1 text-red-600 text-sm">{{ $message }}</div>@enderror
         </div>
+
+        <!--acciones-->
         <div class="mt-4">
             <x-primary-button>{{__('Update')}}</x-primary-button>
         </div>

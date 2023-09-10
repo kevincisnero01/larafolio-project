@@ -5,14 +5,12 @@ namespace App\Livewire\Navigation;
 use App\Models\NavigationItem;
 use Livewire\Component;
 use App\Livewire\Traits\Notification;
-
+use App\Livewire\Traits\Slideover;
 class Navigation extends Component
 {
-    use Notification;
+    use Notification, Slideover;
 
     public $items;
-    public $openSlideover = false;
-    public $addNewItem = false;
 
     protected $listeners = ['deleteItem','itemAdded' => 'updateDataAfterAddItem'];
 
@@ -27,15 +25,6 @@ class Navigation extends Component
         'items.*.link' => 'required|max:40',
 
     ];
-
-    public function openSlide($addNewItem = false)
-    {
-        //cambiar valor del menu: true, false
-        $this->addNewItem = $addNewItem;
-
-        //abrir menu lateral
-        $this->openSlideover = true;
-    }
 
     public function updateDataAfterAddItem()
     {
