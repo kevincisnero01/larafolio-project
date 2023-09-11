@@ -66,6 +66,8 @@ class Info extends Component
             $this->deleteFile(disk: 'hero', filename: $this->info->image);
             //guadamos la imagen en el disco hero y actualizamos la base de datos
             $this->info->update(['image' => $this->imageFile->store('/', 'hero')]);
+            //emitimos un evento para actualizar la imagen
+            $this->dispatch('heroImageUpdated')->to(Image::class);
         }
 
         //reiniciamos todas las propiedades excepto info, ya que es una propiedad enlazada con la data que se muestra
