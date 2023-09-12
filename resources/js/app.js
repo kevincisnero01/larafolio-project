@@ -45,7 +45,8 @@ window.addEventListener('deleteit', event => {
         cancelButtonText: event.detail.cancelText
     }).then((result) => {
         if (result.isConfirmed) {
-            Livewire.dispatch(event.detail.eventName,{ item: event.detail.id})
+            Livewire.dispatch(event.detail.eventName,{ object: event.detail.id}) 
+            //Se le asigna un nombre generico 'objetc' porque no detecta los nombre de la variable enviada
         }
     });
 

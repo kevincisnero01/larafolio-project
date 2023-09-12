@@ -50,8 +50,11 @@ class Navigation extends Component
         $this->notify('Menu items updated successfully!');
     }
 
-    public function deleteItem(NavigationItem $item)
-    {
+    public function deleteItem(NavigationItem $object)
+    {   
+        // se usa obligatoriamente object como nombre para el modal
+        $item = $object; 
+        
         //1-eliminar elemento de la navegacion 
         $item->delete();
         
