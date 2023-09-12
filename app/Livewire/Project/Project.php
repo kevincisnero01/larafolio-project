@@ -8,9 +8,11 @@ use App\Livewire\Traits\WithImageFile;
 use Livewire\WithFileUploads;
 use Livewire\Component;
 use App\Models\Project as ProjectModel;
+use App\Livewire\Traits\ShowProjects;
+
 class Project extends Component
 {
-    use Slideover, WithImageFile, WithFileUploads, Notification;
+    use Slideover, WithImageFile, WithFileUploads, Notification, ShowProjects;
 
     public ProjectModel $currentProject;
     public bool $openModal = false;
@@ -90,7 +92,7 @@ class Project extends Component
 
     public function render()
     {
-        $projects = ProjectModel::get();
+        $projects = ProjectModel::take($this->counter)->get();
         return view('livewire.project.project', [ 'projects' => $projects ]);
     }
 }
