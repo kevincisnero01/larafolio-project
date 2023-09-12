@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Project;
 use App\Models\NavigationItem;
-use App\Models\PersonalInformation;
 use Illuminate\Database\Seeder;
+use App\Models\PersonalInformation;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,6 +38,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         PersonalInformation::factory()->create();
+
+        Project::factory(3)->create();
 
     }
 }
