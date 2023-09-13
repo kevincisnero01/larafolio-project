@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('cv')->nullable();
             $table->string('image')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
