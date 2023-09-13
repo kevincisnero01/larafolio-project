@@ -3,6 +3,7 @@
 namespace Tests\Feature\Contact;
 
 use Tests\TestCase;
+use App\Models\User;
 use Livewire\Livewire;
 use App\Livewire\Contact\Contact;
 use App\Models\PersonalInformation;
@@ -25,5 +26,65 @@ class ContactTest extends TestCase
         $info = PersonalInformation::factory()->create();
 
         Livewire::test(Contact::class)->assertSee($info->email);
+    }
+
+    /** @test */
+    public function only_admin_can_see_contact_action()
+    {
+        $user = User::factory()->create();
+
+        Livewire::actingAs($user)->test(Contact::class)
+            ->assertStatus(200)
+            ->assertSee(__('Edit'));
+    }
+
+    /** @test */
+    public function guests_cannot_see_contact_action()
+    {
+        $this->markTestSkipped('uncomment later');
+
+        /*Livewire::test(Contact::class)
+            ->assertStatus(200)
+            ->assertDontSee(__('Edit'));
+
+        $this->assertGuest();*/
+    }
+
+    /** @test */
+    public function admin_can_edit_contact_email()
+    {
+        $user = User::factory()->create();
+        $contact = PersonalInformation::factory()->create();
+
+        Livewire::actingAs($user)->test(Contact::class)
+            ->set('contact.email', 'tavo@cdp.com')
+            ->call('edit');
+
+        $this->assertDatabaseHas('personal_information', [
+            'id' => $contact->id,
+            'email' => 'tavo@cdp.com'
+        ]);
+    }
+
+    /** @test */
+    public function contact_email_is_required()
+    {
+        $user = User::factory()->create();
+
+        Livewire::actingAs($user)->test(Contact::class)
+            ->set('contact.email', '')
+            ->call('edit')
+            ->assertHasErrors(['contact.email' => 'required']);
+    }
+
+    /** @test */
+    public function contact_email_must_be_a_valid_email()
+    {
+        $user = User::factory()->create();
+
+        Livewire::actingAs($user)->test(Contact::class)
+            ->set('contact.email', 'tavo@cdp')
+            ->call('edit')
+            ->assertHasErrors(['contact.email' => 'email']);
     }
 }
