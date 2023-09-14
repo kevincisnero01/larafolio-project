@@ -217,7 +217,7 @@ return [
         'link'                     => 'enlace',
         'cvFile'                   => 'Archivo de CV',
         'imageFile'                => 'Archivo de Imagen',
-
+        'icon'                     => 'Icono',
     ],
     'custom'               => [
         'items.*.label' => [
