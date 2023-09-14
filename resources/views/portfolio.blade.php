@@ -34,29 +34,14 @@
             <h2 class="text-2xl font-extrabold text-gray-200">{{ __('Contact me') }}</h2>
         </div>
         <div class="max-w-screen-xl px-4 py-3 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+            <!-- CONTACT -->
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
                 <livewire:contact.contact/>
             </nav>
 
-            <!-- livewire component -->
-            <div class="flex justify-center mt-8 space-x-6">
-                <a href="#" target="_blank" class="text-4xl text-gray-400 hover:text-red-400">
-                    <span class="sr-only">Linkedin</span>
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#" target="_blank" class="text-4xl text-gray-400 hover:text-red-400">
-                    <span class="sr-only">Github</span>
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="#" target="_blank" class="text-4xl text-gray-400 hover:text-red-400">
-                    <span class="sr-only">Twitter</span>
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <!-- Boton add and edit -->
-
-                <!-- SlideOver -->
-            </div>
-
+            <!-- SOCIAL LINK -->
+            <livewire:contact.social-link/>
+            
             <!-- livewire component  -->
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
                 <a href="#" class="font-medium px-5 py-2 text-gray-200 hover:text-red-300">Link 1</a>
