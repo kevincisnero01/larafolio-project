@@ -12,27 +12,43 @@ class SocialLink extends Component
     use Slideover, Notification;
 
     public SocialLinkModel $socialLink;
+    public $socialLinkSelected = '';
 
     protected $rules = [
         'socialLink.name' => 'required|max:20',
         'socialLink.url' => 'required|url',
         'socialLink.icon' => [
             'nullable', 
-            'regex:/^(fa-brands|fa-solid)\sfa-[a-z-]+/i'
-            //ingresar: 'fa-brands' oh 'fa-solid' + espacio + guion + letras y guion
+            'regex:/^(fa-brands|fa-solid)\sfa-[a-z-]+/i'//ingresar: 'fa-brands' oh 'fa-solid' + espacio + guion + letras y guion
         ],
     ];
+
+    //hook para detectar el select de social links
+    public function updatedSocialLinkSelected()
+    {
+        $data = SocialLinkModel::find($this->socialLinkSelected);
+
+        if ($data) {
+            $this->socialLink = $data;
+        } else {
+            $this->socialLinkSelected = '';
+        }
+    }
 
     public function mount()
     {
         $this->socialLink = new SocialLinkModel();
     }
 
+    
+
     public function create()
     {
         //si se va a crear despues de editar verificamos para limpiar
         if($this->socialLink->getKey()) {
             $this->socialLink = new SocialLinkModel();
+
+            $this->reset('socialLinkSelected');
         }
 
         $this->openSlide(true);
@@ -44,7 +60,7 @@ class SocialLink extends Component
 
         $this->socialLink->save();
 
-        $this->reset('openSlideover');
+        $this->reset(['socialLinkSelected','openSlideover']);
 
         $this->notify('Social link saved successfully!');
     }

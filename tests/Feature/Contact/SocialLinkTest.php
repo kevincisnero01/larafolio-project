@@ -5,9 +5,9 @@ namespace Tests\Feature\Contact;
 use Tests\TestCase;
 use App\Models\User;
 use Livewire\Livewire;
+use App\Models\SocialLink as SocialLinkModel;
 use App\Livewire\Contact\SocialLink;
 use Illuminate\Foundation\Testing\WithFaker;
-use App\Models\SocialLink as SocialLinkModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SocialLinkTest extends TestCase
@@ -71,6 +71,29 @@ class SocialLinkTest extends TestCase
             'name' => 'Youtube',
             'url' => 'https://youtube.com/profile',
             'icon' => 'fa-brands fa-youtube'
+        ]);
+    }
+
+    /** @test */
+    public function admin_can_edit_a_social_link()
+    {
+        $user = User::factory()->create();
+        $socialLink = SocialLinkModel::factory()->create();
+
+        Livewire::actingAs($user)->test(SocialLink::class)
+            ->set('socialLinkSelected', $socialLink->id)
+            ->set('socialLink.name', 'My Github XD')
+            ->set('socialLink.url', 'https://github.com/gamg')
+            ->set('socialLink.icon', 'fa-brands fa-github')
+            ->call('save');
+
+        $socialLink->refresh();
+
+        $this->assertDatabaseHas('social_links', [
+            'id' => $socialLink->id,
+            'name' => 'My Github XD',
+            'url' => 'https://github.com/gamg',
+            'icon' => $socialLink->icon,
         ]);
     }
 

@@ -10,18 +10,25 @@
     
     <!-- Boton add and edit -->
     <div class="flex items-center space-x-2">
+        <!--Add-->
         <x-actions.action_link wire:click.prevent="create" title="{{ __('New') }}" class="text-yellow-300 hover:text-blue-300">
             <x-icons.add/>
         </x-actions.action_link>
-        <x-actions.action_link title="{{ __('Edit') }}" class="text-yellow-300 hover:text-blue-300">
+        <!--Edit-->
+        <x-actions.action_link wire:click.prevent="openSlide" title="{{ __('Edit') }}" class="text-yellow-300 hover:text-blue-300">
             <x-icons.edit/>
         </x-actions.action_link>
     </div>
 
     <!-- SlideOver -->
     <x-modals.slideover>
+    @if($addNewItem)
         <div class="w-full sm:max-w-md px-6 py-4">
+            <!--Add-->
             <x-forms.create-or-edit-social-link-form/>
         </div>
+    @else
+        <x-forms.edit-social-links :socialLinks="$socialLinks" :socialLinkSelected="$socialLinkSelected" />
+    @endif
     </x-modals.slideover>
 </div>
