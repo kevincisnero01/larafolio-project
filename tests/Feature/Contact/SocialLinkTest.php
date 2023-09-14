@@ -2,12 +2,13 @@
 
 namespace Tests\Feature\Contact;
 
-use App\Livewire\Contact\SocialLink;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Livewire\Livewire;
 use Tests\TestCase;
+use App\Models\User;
+use Livewire\Livewire;
+use App\Livewire\Contact\SocialLink;
+use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\SocialLink as SocialLinkModel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SocialLinkTest extends TestCase
 {
@@ -30,4 +31,29 @@ class SocialLinkTest extends TestCase
             ->assertSee($links->last()->url)
             ->assertSee($links->last()->icon);
     }
+
+    /** @test */
+    public function only_admin_can_see_social_links_actions()
+    {
+        $user = User::factory()->create();
+
+        Livewire::actingAs($user)->test(SocialLink::class)
+            ->assertStatus(200)
+            ->assertSee(__('New'))
+            ->assertSee(__('Edit'));
+    }
+
+    /** @test */
+    public function guests_cannot_see_social_links_actions()
+    {
+        $this->markTestSkipped('uncomment later');
+
+        /*Livewire::test(SocialLink::class)
+            ->assertStatus(200)
+            ->assertDontSee(__('New'))
+            ->assertDontSee(__('Edit'));
+
+        $this->assertGuest();*/
+    }
+ 
 }

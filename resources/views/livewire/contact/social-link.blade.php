@@ -9,6 +9,14 @@
     @endforelse
     
     <!-- Boton add and edit -->
+    <div class="flex items-center space-x-2">
+        <x-actions.action_link wire:click.prevent="create" title="{{ __('New') }}" class="text-yellow-300 hover:text-blue-300">
+            <x-icons.add/>
+        </x-actions.action_link>
+        <x-actions.action_link title="{{ __('Edit') }}" class="text-yellow-300 hover:text-blue-300">
+            <x-icons.edit/>
+        </x-actions.action_link>
+    </div>
 
     <!-- SlideOver -->
 </div>
