@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\NavigationItem;
 use Illuminate\Database\Seeder;
 use App\Models\PersonalInformation;
+use App\Models\SocialLink;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,6 +41,18 @@ class DatabaseSeeder extends Seeder
         PersonalInformation::factory()->create();
 
         Project::factory(3)->create();
+
+        SocialLink::factory()->create([
+            'name' => 'Linkedin',
+            'url' => 'https://www.linkedin.com/in/kevincisnero01',
+            'icon' => 'fa-brands fa-linkedin'
+        ]);
+
+        SocialLink::factory()->create([
+            'name' => 'Github',
+            'url' => 'https://github.com/kevincisnero01',
+            'icon' => 'fa-brands fa-github'
+        ]);
 
     }
 }

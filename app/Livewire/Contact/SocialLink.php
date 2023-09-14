@@ -2,12 +2,15 @@
 
 namespace App\Livewire\Contact;
 
+use App\Models\SocialLink as SocialLinkModel;
 use Livewire\Component;
 
 class SocialLink extends Component
 {
     public function render()
     {
-        return view('livewire..contact.social-link');
+        $socialLinks = SocialLinkModel::get();
+
+        return view('livewire..contact.social-link', [ 'socialLinks' => $socialLinks ]);
     }
 }
