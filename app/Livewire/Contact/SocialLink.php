@@ -11,6 +11,8 @@ class SocialLink extends Component
 {
     use Slideover, Notification;
 
+    protected $listeners = ['deleteSocialLink'];
+
     public SocialLinkModel $socialLink;
     public $socialLinkSelected = '';
 
@@ -40,8 +42,6 @@ class SocialLink extends Component
         $this->socialLink = new SocialLinkModel();
     }
 
-    
-
     public function create()
     {
         //si se va a crear despues de editar verificamos para limpiar
@@ -63,6 +63,17 @@ class SocialLink extends Component
         $this->reset(['socialLinkSelected','openSlideover']);
 
         $this->notify('Social link saved successfully!');
+    }
+
+    public function deleteSocialLink()
+    {
+        $this->socialLink->delete();
+
+        $this->reset('socialLinkSelected');
+
+        $this->mount();
+
+        $this->notify('Social link has been deleted.', 'deleteMessage');
     }
     
     public function render()
