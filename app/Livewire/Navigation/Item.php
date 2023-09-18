@@ -30,6 +30,8 @@ class Item extends Component
 
         $this->dispatch('itemAdded')->to(Navigation::class);
 
+        $this->dispatch('itemsHaveBeenUpdated')->to(FooterLink::class);
+
         $this->mount();
 
         $this->notify('Item created successfully!');

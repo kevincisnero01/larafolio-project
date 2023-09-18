@@ -1,6 +1,6 @@
 <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:max-w-none">
     <div class="flex items-center">
-        <h2 class="text-2xl font-extrabold text-gray-900 mr-5" id="{{ __('proyectos') }}">{{ __('Projects') }}</h2>
+        <h2 class="text-2xl font-extrabold text-gray-900 mr-5" id="{{ __('projects') }}">{{ __('Projects') }}</h2>
         <!-- Boton add -->
         <x-actions.action_link wire:click.prevent="create" title="{{ __('New Project') }}" class="text-gray-800 hover:text-gray-600">
             <x-icons.add/>

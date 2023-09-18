@@ -19,12 +19,11 @@
                     </div>
                 </div>
             </div>
-            <!--Navigation Items for Desktop-->
+            <!-- =====Navigation Items(Desktop)===== -->
             <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8 text-lg">
                 <x-navigation.links class="text-gray-200 hover:text-red-300" :items="$items"/>
             </div>
-            <!--Navigation Actions for Desktop-->
-            {{-- @auth --}}{{-- @endauth --}}
+            <!--Actions(Desktop)-->
             <div class="hidden md:flex items-center justify-between space-x-2 ml-4 pb-1">
                 <x-actions.action_link 
                     class="text-yellow-300 hover:text-blue-300" title="{{ __('Edit') }}"
@@ -61,10 +60,9 @@
                 </div>
             </div>
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <!--Navigation Items for Mobile-->
+                <!-- =====Navigation Items(Mobile) ===== -->
                 <x-navigation.links class="block px-3 py-2 rounded-md text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50" :items="$items"/>
-                <!--Navigation Actions for Mobile-->
-                {{-- @auth --}}{{-- @endauth --}}
+                <!--Actions for Mobile-->
                 <x-actions.action_link
                     class="block px-2 text-yellow-500 hover:text-blue-500" title="{{ __('Edit') }}"
                     wire:click.prevent="openSlide" 

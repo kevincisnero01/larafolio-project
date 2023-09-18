@@ -46,7 +46,10 @@ class Navigation extends Component
         //3-cerrar el menu lateral
         $this->reset('openSlideover');
 
-        //4-disparar el evento de la notificacion
+        //4-disparar el evento para actualizar navegacion
+        $this->dispatch('itemsHaveBeenUpdated')->to(FooterLink::class);
+
+        //5-disparar el evento de la notificacion
         $this->notify('Menu items updated successfully!');
     }
 
@@ -61,7 +64,10 @@ class Navigation extends Component
         //2-refrescar componente de <navegacion></navegacion>
         $this->mount();
 
-        //3-disparar el evento de la notificacion
+        //3-disparar el evento para actualizar navegacion
+        $this->dispatch('itemsHaveBeenUpdated')->to(FooterLink::class);
+
+        //4-disparar el evento de la notificacion
         $this->notify('Menu item has been deleted.', 'deleteMessage');
 
     }
