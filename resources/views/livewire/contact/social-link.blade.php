@@ -7,6 +7,8 @@
     @empty
         <h3 class="text-gray-300">{{ __('There is no social links to show!') }}</h3>
     @endforelse
+
+    @auth
     
     <!-- Boton add and edit -->
     <div class="flex items-center space-x-2">
@@ -19,6 +21,7 @@
             <x-icons.edit/>
         </x-actions.action_link>
     </div>
+    
 
     <!-- SlideOver -->
     <x-modals.slideover>
@@ -31,4 +34,6 @@
         <x-forms.edit-social-links :socialLinks="$socialLinks" :socialLinkSelected="$socialLinkSelected" />
     @endif
     </x-modals.slideover>
+
+    @endauth
 </div>

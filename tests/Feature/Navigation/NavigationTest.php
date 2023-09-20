@@ -19,7 +19,7 @@ class NavigationTest extends TestCase
     {
         $this->get('/')
             ->assertStatus(200)
-            ->assertSeeLivewire('navigation.header-navigation');
+            ->assertSeeLivewire('navigation.navigation');
     }
 
     /** @test */

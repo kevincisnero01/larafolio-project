@@ -2,9 +2,11 @@
     <div class="flex items-center">
         <h2 class="text-2xl font-extrabold text-gray-900 mr-5" id="{{ __('projects') }}">{{ __('Projects') }}</h2>
         <!-- Boton add -->
+        @auth
         <x-actions.action_link wire:click.prevent="create" title="{{ __('New Project') }}" class="text-gray-800 hover:text-gray-600">
             <x-icons.add/>
         </x-actions.action_link>
+        @endauth
     </div>
     <div class="space-y-12 lg:space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6">
         @forelse($projects as $project)
@@ -18,6 +20,7 @@
                 <a href="#" wire:click.prevent="loadProject({{ $project->id }})" >{{ $project->name }}</a>
             </h3>
             <!-- Boton edit and delete -->
+            @auth
             <div class="flex items-center" x-data>
                 <x-actions.action_link wire:click.prevent="loadProject({{ $project->id }}, false)" title="{{ __('Edit') }}" class="text-gray-800 hover:text-gray-600">
                     <x-icons.edit/>
@@ -25,6 +28,7 @@
 
                 <x-actions.delete eventName="deleteProject" :object="$project"/>
             </div>
+            @endauth
         </div>
         @empty
             <h3>{{ __('There are no projects to show!') }}</h3>
@@ -95,7 +99,9 @@
     </div>
 
     <!-- SlideOver -->
+    @auth
     <x-modals.slideover>
         <x-forms.create-project :currentProject="$currentProject" :imageFile="$imageFile"/>
     </x-modals.slideover>
+    @endauth
 </div>
