@@ -53,13 +53,13 @@ class InfoTest extends TestCase
     /** @test */
     public function guests_cannot_see_hero_action()
     {
-        $this->markTestSkipped('descomentar despues...'); // para omitir el test
+        //$this->markTestSkipped('descomentar despues...'); // para omitir el test
 
-        // Livewire::test(Info::class)
-        //     ->assertStatus(200)
-        //     ->assertDontSee(__('Edit'));
+        Livewire::test(Info::class)
+            ->assertStatus(200)
+            ->assertDontSee(__('Edit'));
         
-        // $this->assertGuest();
+        $this->assertGuest();
     }
 
     /** @test */

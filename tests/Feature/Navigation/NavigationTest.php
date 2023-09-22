@@ -44,17 +44,17 @@ class NavigationTest extends TestCase
         
     }
 
-    //  /** @test */
-    // public function guest_cannot_see_navigation_actions()
-    // {
+     /** @test */
+    public function guest_cannot_see_navigation_actions()
+    {
 
-    //     Livewire::test(Navigation::class)
-    //         ->assertStatus(200)
-    //         ->assertDontSee(__('Edit'))
-    //         ->assertDontSee(__('Add'));
+        Livewire::test(Navigation::class)
+            ->assertStatus(200)
+            ->assertDontSee(__('Edit'))
+            ->assertDontSee(__('Add'));
         
-    //         $this->assertGuest();
-    // }
+            $this->assertGuest();
+    }
 
     /** @test */
     public function admin_can_edit_items()
@@ -67,7 +67,7 @@ class NavigationTest extends TestCase
             ->set('items.0.label', 'Proyectos')
             ->set('items.0.link', '#proyectos')
             ->set('items.1.label', 'Contacto')
-            ->set('items.1.link', '#contact')
+            ->set('items.1.link', '#contacto')
             ->call('edit');
 
         $this->assertDatabaseHas('navigation_items',[
@@ -79,7 +79,7 @@ class NavigationTest extends TestCase
         $this->assertDatabaseHas('navigation_items',[
             'id' => $items->last()->id,
             'label' => 'Contacto',
-            'link' =>'#contact'
+            'link' =>'#contacto'
         ]);
     }
 

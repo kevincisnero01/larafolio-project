@@ -11,6 +11,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FooterLinkTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /** @test */
     public function footer_link_component_can_be_rendered()
     {
