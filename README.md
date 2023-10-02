@@ -1,65 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Tabla de Contenido 📋
+- [Tabla de Contenido 📋](#tabla-de-contenido-)
+- [Introducción 🎯](#introducción-)
+- [Caracteristicas ⚙️](#caracteristicas-️)
+  - [📍 Módulo de Navegación](#-módulo-de-navegación)
+  - [📍 Módulo de Proyectos](#-módulo-de-proyectos)
+  - [📍 Módulo de Contacto](#-módulo-de-contacto)
+  - [📍 Módulo de Autenticación](#-módulo-de-autenticación)
+- [Metodologías 🧾](#metodologías-)
+- [Tecnologías 💽](#tecnologías-)
+- [Instalación  🛠️](#instalación--️)
+- [License](#license)
+
+
+## Introducción 🎯 
+Les presento un proyecto de portafolio que refleja mi capacidad para crear aplicaciones web de alta calidad. Esta aplicación incluye una página de inicio, una sección de proyectos y una página de contacto. Fue desarrollada utilizando la metodología TDD, lo que garantiza pruebas unitarias completas para cada componente y regla. Además, cuenta con características avanzadas como alertas, ventanas modales y confirmaciones de eliminación. Destaca por su uso del stack TALL, proporcionando funcionalidad reactiva y moderna.
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://kevincisnero.com" target="_blank">
+<img src="https://raw.githubusercontent.com/kevincisnero01/larafolio-project/main/public/documentacion/LarafolioDigital-0.png " width="100%" alt="Imagen Principal">
+</a>
 </p>
 
-## About Laravel
+## Caracteristicas ⚙️
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 📍 Módulo de Navegación 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Crear opciones**: Puedes crear nuevos enlaces de navegación agregando un nombre y un link.
+- **Editar opciones**: Puedes editar a tú gustas los enlaces existentes.
+- **Eliminar opciones**: Puedes eliminar enlaces de navegación.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 📍 Módulo de Proyectos
 
-## Learning Laravel
+- **Crear proyectos**: Puedes crear proyectos en el portafolio agregando su nombre, descripción, foto y URL de enlaces.
+- **Editar proyectos**: Puedes editar la información de los proyectos existentes.
+- **Eliminar opciones**: Puedes eliminar los proyectos no deseados.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📍 Módulo de Contacto
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Editar el correo**: Puedes editar el correo principal por el cual te contactaran.
+- **Crear enlaces sociales**: Puedes crear nuevos enlaces para que te contacten  agregando su nombre, link e icono.
+- **Editar enlaces sociales**: Puedes editar la información de los enlaces existentes.
+- **Eliminar enlaces sociales**: Puedes eliminar los enlaces no deseados.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📍 Módulo de Autenticación
+- **Iniciar sesión**: Puedes loguearte en el sistema para poder tener acceso a las funcionalidades de edición que solo pertenecen a los usuarios registrados previamente.
+- **Cerrar sesión**: Puedes salir del sistema con el botón de logout.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Metodologías 🧾 
+- **Metodología TDD**:  Se implementó dicha metodología para asegurar la funcionalidad  mediante pruebas unitarias de cada uno de los componentes que integran el proyecto.
+- **Diseño Basado en Componentes**: Se desarrolló dividiendo las interfaces y funcionalidades en componentes reutilizables para un mejor mantenimiento y escalabilidad a futuro.
+- **Diseño Responsive Design**:  Se utilizó tailwind para aplicar diseños adaptables tanto a pantallas móviles como de desktop.
 
-### Premium Partners
+## Tecnologías 💽
+El stack TALL incluye las siguientes tecnologías:
+- **Tailwind CSS:** Un framework de CSS que simplifica la creación de interfaces de usuario atractivas y altamente personalizables.
+- **Alpine.js:** Un framework de JavaScript liviano que facilita la interactividad ágil en el frontend.
+- **Livewire:**  Es una biblioteca de desarrollo web que permite agregar interactividad y reactividad a las aplicaciones web de PHP de manera sencilla y elegante.
+- **Laravel:** Un framework de desarrollo backend en PHP que proporciona una base sólida y escalable para construir aplicaciones web.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<a href="https://tallstack.dev/" target="_blank">
+<img src="https://raw.githubusercontent.com/kevincisnero01/larafolio-project/main/public/documentacion/stack.png" width="500" alt="Stack">
+</a>
 
-## Contributing
+Paquetes:
+- **SweeAlert2**: Se incorporó dicho paquete para mostrar implementar alertas, ventas modales y ventanas de confirmaciones.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Instalación  🛠️
+Para poder instalar **LarafolioDigital** solo es necesario contar con un servidor MySQL y un servidor Web. Si necesita instalarlo de manera local debe tener isntalado:
+- Servidor que incluya PHP 8.0.2 y MySQL (Recomiendo [Laragon](https://laragon.org/download/index.html))
+- Editor de código (Recomiendo [VSCode](https://code.visualstudio.com/download))
+- Github Desktop ([Enlace](https://desktop.github.com/)) 
+  
 
-## Code of Conduct
+Pasos para configuracion:
+1. Clonar repositorio de github
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+        git clone <url de repositorio>
 
-## Security Vulnerabilities
+2. Instalar dependencias
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+        composer install
+
+3. Compilar assets
+
+        npm run dev
+
+4. Configurar .env 
+
+5. Crear base de datos y ejecutar migraciones
 
 ## License
 
